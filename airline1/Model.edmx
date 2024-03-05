@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_airlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_booking">
+          <Key>
+            <PropertyRef Name="ticket_id" />
+          </Key>
+          <Property Name="ticket_id" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="costumer_id" Type="nvarchar" MaxLength="6" />
+          <Property Name="dateofjourney" Type="date" />
+          <Property Name="flight_id" Type="nvarchar" MaxLength="8" />
+          <Property Name="seat_no" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_costumerdetails">
+          <Key>
+            <PropertyRef Name="costumer_id" />
+          </Key>
+          <Property Name="costumer_id" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="father_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="birth_date" Type="date" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tbl_flight">
+          <Key>
+            <PropertyRef Name="flight_id" />
+          </Key>
+          <Property Name="flight_id" Type="nvarchar" MaxLength="8" Nullable="false" />
+          <Property Name="flight_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="source" Type="nvarchar" MaxLength="50" />
+          <Property Name="destination" Type="nvarchar" MaxLength="50" />
+          <Property Name="arrival_time" Type="nvarchar" MaxLength="50" />
+          <Property Name="departure" Type="nvarchar" MaxLength="50" />
+          <Property Name="flight_class" Type="nvarchar" MaxLength="50" />
+          <Property Name="flight_charges" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="seats" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_message">
+          <Key>
+            <PropertyRef Name="message_id" />
+          </Key>
+          <Property Name="message_id" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="pengirim" Type="nvarchar" MaxLength="6" />
+          <Property Name="penerima" Type="nvarchar" MaxLength="6" />
+          <Property Name="message" Type="nvarchar" MaxLength="1000" />
+          <Property Name="subject" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_level" Type="nvarchar" MaxLength="20" />
+          <Property Name="photo" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="db_airlineModelStoreContainer">
+          <EntitySet Name="tbl_booking" EntityType="Self.tbl_booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_costumerdetails" EntityType="Self.tbl_costumerdetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_flight" EntityType="Self.tbl_flight" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_message" EntityType="Self.tbl_message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_airlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_booking">
+          <Key>
+            <PropertyRef Name="ticket_id" />
+          </Key>
+          <Property Name="ticket_id" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="costumer_id" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="dateofjourney" Type="DateTime" Precision="0" />
+          <Property Name="flight_id" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="seat_no" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_costumerdetails">
+          <Key>
+            <PropertyRef Name="costumer_id" />
+          </Key>
+          <Property Name="costumer_id" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="father_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="birth_date" Type="DateTime" Precision="0" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_flight">
+          <Key>
+            <PropertyRef Name="flight_id" />
+          </Key>
+          <Property Name="flight_id" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="flight_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="arrival_time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="departure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="flight_class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="flight_charges" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="seats" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_level" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="photo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="db_airlineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_booking" EntityType="Self.tbl_booking" />
+          <EntitySet Name="tbl_costumerdetails" EntityType="Self.tbl_costumerdetails" />
+          <EntitySet Name="tbl_flight" EntityType="Self.tbl_flight" />
+          <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+          <EntitySet Name="tbl_message" EntityType="db_airlineModel.tbl_message" />
+        </EntityContainer>
+        <EntityType Name="tbl_message">
+          <Key>
+            <PropertyRef Name="message_id" />
+          </Key>
+          <Property Name="message_id" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="pengirim" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="penerima" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="message" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_airlineModelStoreContainer" CdmEntityContainer="db_airlineEntities">
+          <EntitySetMapping Name="tbl_booking">
+            <EntityTypeMapping TypeName="db_airlineModel.tbl_booking">
+              <MappingFragment StoreEntitySet="tbl_booking">
+                <ScalarProperty Name="ticket_id" ColumnName="ticket_id" />
+                <ScalarProperty Name="costumer_id" ColumnName="costumer_id" />
+                <ScalarProperty Name="dateofjourney" ColumnName="dateofjourney" />
+                <ScalarProperty Name="flight_id" ColumnName="flight_id" />
+                <ScalarProperty Name="seat_no" ColumnName="seat_no" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_costumerdetails">
+            <EntityTypeMapping TypeName="db_airlineModel.tbl_costumerdetails">
+              <MappingFragment StoreEntitySet="tbl_costumerdetails">
+                <ScalarProperty Name="costumer_id" ColumnName="costumer_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="father_name" ColumnName="father_name" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_flight">
+            <EntityTypeMapping TypeName="db_airlineModel.tbl_flight">
+              <MappingFragment StoreEntitySet="tbl_flight">
+                <ScalarProperty Name="flight_id" ColumnName="flight_id" />
+                <ScalarProperty Name="flight_name" ColumnName="flight_name" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="destination" ColumnName="destination" />
+                <ScalarProperty Name="arrival_time" ColumnName="arrival_time" />
+                <ScalarProperty Name="departure" ColumnName="departure" />
+                <ScalarProperty Name="flight_class" ColumnName="flight_class" />
+                <ScalarProperty Name="flight_charges" ColumnName="flight_charges" />
+                <ScalarProperty Name="seats" ColumnName="seats" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_user">
+            <EntityTypeMapping TypeName="db_airlineModel.tbl_user">
+              <MappingFragment StoreEntitySet="tbl_user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="user_level" ColumnName="user_level" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_message">
+            <EntityTypeMapping TypeName="db_airlineModel.tbl_message">
+              <MappingFragment StoreEntitySet="tbl_message">
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="penerima" ColumnName="penerima" />
+                <ScalarProperty Name="pengirim" ColumnName="pengirim" />
+                <ScalarProperty Name="message_id" ColumnName="message_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
